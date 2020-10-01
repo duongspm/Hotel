@@ -32,7 +32,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvThietBi = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnLuu = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
@@ -52,7 +51,7 @@
             // 
             this.groupBox1.Controls.Add(this.dgvThietBi);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
@@ -60,22 +59,20 @@
             this.groupBox1.Size = new System.Drawing.Size(520, 529);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Danh sách các thiết bị";
             // 
             // dgvThietBi
             // 
             this.dgvThietBi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvThietBi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvThietBi.Location = new System.Drawing.Point(4, 26);
+            this.dgvThietBi.Location = new System.Drawing.Point(4, 31);
             this.dgvThietBi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dgvThietBi.Name = "dgvThietBi";
             this.dgvThietBi.RowTemplate.Height = 28;
-            this.dgvThietBi.Size = new System.Drawing.Size(512, 500);
+            this.dgvThietBi.Size = new System.Drawing.Size(512, 495);
             this.dgvThietBi.TabIndex = 0;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnLuu);
             this.groupBox2.Controls.Add(this.btnHuy);
             this.groupBox2.Controls.Add(this.btnXoa);
             this.groupBox2.Controls.Add(this.btnSua);
@@ -87,6 +84,7 @@
             this.groupBox2.Controls.Add(this.txtMaThietBi);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(528, 0);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox2.Name = "groupBox2";
@@ -95,20 +93,6 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin thiết bị";
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnLuu.FlatAppearance.BorderSize = 0;
-            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.Location = new System.Drawing.Point(377, 386);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(105, 37);
-            this.btnLuu.TabIndex = 100;
-            this.btnLuu.Text = "LƯU LẠI";
-            this.btnLuu.UseVisualStyleBackColor = false;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnHuy
             // 
@@ -168,55 +152,61 @@
             // 
             // mtbGia
             // 
+            this.mtbGia.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mtbGia.Location = new System.Drawing.Point(170, 153);
             this.mtbGia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.mtbGia.Name = "mtbGia";
-            this.mtbGia.Size = new System.Drawing.Size(239, 26);
+            this.mtbGia.Size = new System.Drawing.Size(239, 35);
             this.mtbGia.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(46, 160);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 20);
+            this.label3.Size = new System.Drawing.Size(46, 27);
             this.label3.TabIndex = 0;
             this.label3.Text = "Giá";
             // 
             // txtTenThietBi
             // 
+            this.txtTenThietBi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenThietBi.Location = new System.Drawing.Point(170, 100);
             this.txtTenThietBi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtTenThietBi.Name = "txtTenThietBi";
-            this.txtTenThietBi.Size = new System.Drawing.Size(239, 26);
+            this.txtTenThietBi.Size = new System.Drawing.Size(239, 35);
             this.txtTenThietBi.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(46, 107);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 20);
+            this.label2.Size = new System.Drawing.Size(122, 27);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên thiết bị";
             // 
             // txtMaThietBi
             // 
+            this.txtMaThietBi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaThietBi.Location = new System.Drawing.Point(170, 53);
             this.txtMaThietBi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtMaThietBi.Name = "txtMaThietBi";
-            this.txtMaThietBi.Size = new System.Drawing.Size(239, 26);
+            this.txtMaThietBi.Size = new System.Drawing.Size(239, 35);
             this.txtMaThietBi.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(46, 59);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 20);
+            this.label1.Size = new System.Drawing.Size(117, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã thiết bị";
             // 
@@ -249,7 +239,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvThietBi;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
