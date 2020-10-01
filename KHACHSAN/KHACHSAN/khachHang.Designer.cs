@@ -52,9 +52,10 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvKhachHang);
+            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 216);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(527, 313);
+            this.groupBox1.Size = new System.Drawing.Size(657, 313);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -62,10 +63,10 @@
             // 
             this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvKhachHang.Location = new System.Drawing.Point(3, 22);
+            this.dgvKhachHang.Location = new System.Drawing.Point(3, 31);
             this.dgvKhachHang.Name = "dgvKhachHang";
             this.dgvKhachHang.RowTemplate.Height = 28;
-            this.dgvKhachHang.Size = new System.Drawing.Size(521, 288);
+            this.dgvKhachHang.Size = new System.Drawing.Size(651, 279);
             this.dgvKhachHang.TabIndex = 0;
             // 
             // btnSearch
@@ -195,14 +196,14 @@
             // 
             this.txttenKhachHang.Location = new System.Drawing.Point(328, 100);
             this.txttenKhachHang.Name = "txttenKhachHang";
-            this.txttenKhachHang.Size = new System.Drawing.Size(199, 40);
+            this.txttenKhachHang.Size = new System.Drawing.Size(227, 40);
             this.txttenKhachHang.TabIndex = 2;
             // 
             // txtmaKhachHang
             // 
             this.txtmaKhachHang.Location = new System.Drawing.Point(328, 54);
             this.txtmaKhachHang.Name = "txtmaKhachHang";
-            this.txtmaKhachHang.Size = new System.Drawing.Size(199, 40);
+            this.txtmaKhachHang.Size = new System.Drawing.Size(227, 40);
             this.txtmaKhachHang.TabIndex = 1;
             // 
             // label1
