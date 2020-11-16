@@ -151,7 +151,22 @@ namespace KHACHSAN
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa thông tin ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                // lấy dữ liệu từ textBox
+                string id = txtMaThietBi.Text;
 
+                //xóa dòng dl trong csdl
+                string str_xoa = "DELETE FROM THIETBI WHERE maThietBi = '" + id + "' ";
+                SqlCommand cmd = new SqlCommand(str_xoa, conn);
+                cmd.ExecuteNonQuery();
+
+                //load lại dữ liệu trên form
+                LoadDuLieu();
+
+            }
+            //else
+            //    MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
@@ -313,19 +328,45 @@ namespace KHACHSAN
 
         private void btnXoa_Click_1(object sender, EventArgs e)
         {
-            // lấy dữ liệu từ textBox
-            string id = txtMaThietBi.Text;
+            try
+            {
+                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa thông tin ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    // lấy dữ liệu từ textBox
+                    string id = txtMaThietBi.Text;
 
-            //xóa dòng dl trong csdl
-            string str_xoa = "DELETE FROM THIETBI WHERE maThietBi = '" + id + "' ";
-            SqlCommand cmd = new SqlCommand(str_xoa, conn);
-            cmd.ExecuteNonQuery();
+                    //xóa dòng dl trong csdl
+                    string str_xoa = "DELETE FROM THIETBI WHERE maThietBi = '" + id + "' ";
+                    SqlCommand cmd = new SqlCommand(str_xoa, conn);
+                    cmd.ExecuteNonQuery();
 
-            //load lại dữ liệu trên form
-            LoadDuLieu();
+                    //load lại dữ liệu trên form
+                    LoadDuLieu();
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+             
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                adap.Update((DataTable)dgvThietBi.DataSource);
+                dt.Clear();
+                LoadDuLieu();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void btnLuu_Click_1(object sender, EventArgs e)
         {
             try
             {

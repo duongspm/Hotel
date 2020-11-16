@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace KHACHSAN
 {
@@ -175,6 +176,7 @@ namespace KHACHSAN
 
             DisableHuyButton();
             DisableTextBox();
+            txtSearch.Text = "";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -197,19 +199,24 @@ namespace KHACHSAN
                     string id = txtmaKhachHang.Text;
                     string name = txttenKhachHang.Text;
                     string sdt = mtbsoDienThoai.Text;
-                    if(id == "")
+
+                    Regex ma = new Regex(@"^[0-9]{9,15}$");
+                    if (!ma.IsMatch(txtmaKhachHang.Text))
                     {
-                        MessageBox.Show("Vui lòng nhập mã khách hàng !");
+                        MessageBox.Show("Mã khách hàng độ dài 9 - 15 ký tự chỉ chứa số, Không ký tự đặc biệt", "Vui lòng nhập mã khách hàng !");
                         return;
                     }
-                    if(name=="")
+                    if (name=="")
                     {
                         MessageBox.Show("Vui lòng nhập tên khách hàng!");
                         return;
                     }
-                    if(sdt=="")
+                    Regex dt = new Regex(@"((0)+([0-9]{9})\b)");
+                    if (!dt.IsMatch(mtbsoDienThoai.Text))
+                    //if(sdt=="")
                     {
-                        MessageBox.Show("Vui lòng nhập số điện thoại của khách hàng!!");
+                        MessageBox.Show("Số điện thoại sai định dạng ! Không chứa kí tự đặc biệt, đủ 10 số và bắt đầu bằng số 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        mtbsoDienThoai.Focus();
                         return;
                     }
                     string str_them = "INSERT INTO KHACHHANG VALUES ('" + id + "', N'" + name + "', N'" + sdt + "')";
@@ -254,9 +261,10 @@ namespace KHACHSAN
                 string id = txtmaKhachHang.Text;
                 string name = txttenKhachHang.Text;
                 string sdt = mtbsoDienThoai.Text;
-                if (id == "")
+                Regex ma = new Regex(@"^[0-9]{9,15}$");
+                if (!ma.IsMatch(txtmaKhachHang.Text))
                 {
-                    MessageBox.Show("Vui lòng nhập mã khách hàng !");
+                    MessageBox.Show("Mã khách hàng độ dài 9 - 15 ký tự chỉ chứa số, Không ký tự đặc biệt", "Vui lòng nhập mã khách hàng !");
                     return;
                 }
                 if (name == "")
@@ -264,9 +272,11 @@ namespace KHACHSAN
                     MessageBox.Show("Vui lòng nhập tên khách hàng!");
                     return;
                 }
-                if (sdt == "")
+                Regex dt = new Regex(@"((0)+([0-9]{9})\b)");
+                if (!dt.IsMatch(mtbsoDienThoai.Text))
                 {
-                    MessageBox.Show("Vui lòng nhập số điện thoại của khách hàng!!");
+                    MessageBox.Show("Số điện thoại sai định dạng ! Không chứa kí tự đặc biệt, đủ 10 số và bắt đầu bằng số 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mtbsoDienThoai.Focus();
                     return;
                 }
                 string str_sua = "UPDATE KHACHHANG SET tenKhachHang = N'" + name + "',soDienThoai = N'" + sdt + "'  WHERE maKhachHang = '" + id + "' ";
@@ -287,47 +297,78 @@ namespace KHACHSAN
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            string id = txtmaKhachHang.Text;
+            try
+            {
+                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa thông tin ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    string id = txtmaKhachHang.Text;
 
-            //xóa dòng dl trong csdl
-            string str_xoa = "DELETE FROM KHACHHANG WHERE maKhachHang = '" + id + "' ";
-            SqlCommand cmd = new SqlCommand(str_xoa, conn);
-            cmd.ExecuteNonQuery();
+                    //xóa dòng dl trong csdl
+                    string str_xoa = "DELETE FROM KHACHHANG WHERE maKhachHang = '" + id + "' ";
+                    SqlCommand cmd = new SqlCommand(str_xoa, conn);
+                    cmd.ExecuteNonQuery();
 
-            //load lại dữ liệu trên form
-            LoadDuLieu();
+                    //load lại dữ liệu trên form
+                    LoadDuLieu();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
             try
             {
-                adapter.Update((DataTable)dgvKhachHang.DataSource);
-                dt.Clear();
-                LoadDuLieu();
+                    adapter.Update((DataTable)dgvKhachHang.DataSource);
+                    dt.Clear();
+                    LoadDuLieu();
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
-        private void Seach()
-        {
-
-        }
+        
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string timkiem = "SELECT* FROM KHACHHANG WHERE maKhachHang=@maKhachHang";
-            SqlCommand cmd = new SqlCommand(timkiem, conn);
-            cmd.Parameters.AddWithValue("maKhachHang", txtSearch.Text);
-            cmd.Parameters.AddWithValue("tenKhachHang", txttenKhachHang.Text);
-            cmd.Parameters.AddWithValue("soDienThoai", mtbsoDienThoai.Text);
-            SqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            dgvKhachHang.DataSource = dt;
-            EnableHuyButton();
+            try
+            {
+                string timkiem = "SELECT* FROM KHACHHANG WHERE maKhachHang like '%'+@maKhachHang+'%' or tenKhachHang like '%' + @maKhachHang + '%' or soDienThoai like '%' + @maKhachHang + '%'";
+                SqlCommand cmd = new SqlCommand(timkiem, conn);
+                cmd.Parameters.AddWithValue("maKhachHang", txtSearch.Text);
+                cmd.Parameters.AddWithValue("tenKhachHang", txttenKhachHang.Text);
+                cmd.Parameters.AddWithValue("soDienThoai", mtbsoDienThoai.Text);
+                SqlDataReader dr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                dgvKhachHang.DataSource = dt;
+                EnableHuyButton();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message,"Không tìm thấy !");
+            }
+        }
+
+        private void btnLuu_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                adapter.Update((DataTable)dgvKhachHang.DataSource);
+                dt.Clear();
+                LoadDuLieu();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

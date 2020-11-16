@@ -42,6 +42,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaThietBi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.maThietBi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenThietBi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txttinhTrang = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThietBi)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -63,6 +67,10 @@
             // dgvThietBi
             // 
             this.dgvThietBi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThietBi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.maThietBi,
+            this.tenThietBi,
+            this.gia});
             this.dgvThietBi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvThietBi.Location = new System.Drawing.Point(4, 31);
             this.dgvThietBi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -73,6 +81,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txttinhTrang);
             this.groupBox2.Controls.Add(this.btnHuy);
             this.groupBox2.Controls.Add(this.btnXoa);
             this.groupBox2.Controls.Add(this.btnSua);
@@ -157,7 +166,7 @@
             this.mtbGia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.mtbGia.Name = "mtbGia";
             this.mtbGia.Size = new System.Drawing.Size(239, 35);
-            this.mtbGia.TabIndex = 2;
+            this.mtbGia.TabIndex = 3;
             // 
             // label3
             // 
@@ -173,17 +182,17 @@
             // txtTenThietBi
             // 
             this.txtTenThietBi.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenThietBi.Location = new System.Drawing.Point(170, 100);
+            this.txtTenThietBi.Location = new System.Drawing.Point(170, 102);
             this.txtTenThietBi.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtTenThietBi.Name = "txtTenThietBi";
             this.txtTenThietBi.Size = new System.Drawing.Size(239, 35);
-            this.txtTenThietBi.TabIndex = 1;
+            this.txtTenThietBi.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(46, 107);
+            this.label2.Location = new System.Drawing.Point(46, 109);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 27);
@@ -209,6 +218,32 @@
             this.label1.Size = new System.Drawing.Size(117, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã thiết bị";
+            // 
+            // maThietBi
+            // 
+            this.maThietBi.DataPropertyName = "maThietBi";
+            this.maThietBi.HeaderText = "Mã thiết bị";
+            this.maThietBi.Name = "maThietBi";
+            // 
+            // tenThietBi
+            // 
+            this.tenThietBi.DataPropertyName = "tenThietBi";
+            this.tenThietBi.HeaderText = "Tên thiết bị";
+            this.tenThietBi.Name = "tenThietBi";
+            // 
+            // gia
+            // 
+            this.gia.DataPropertyName = "gia";
+            this.gia.HeaderText = "Giá";
+            this.gia.Name = "gia";
+            // 
+            // txttinhTrang
+            // 
+            this.txttinhTrang.Location = new System.Drawing.Point(377, 488);
+            this.txttinhTrang.Name = "txttinhTrang";
+            this.txttinhTrang.Size = new System.Drawing.Size(100, 35);
+            this.txttinhTrang.TabIndex = 100;
+            this.txttinhTrang.Visible = false;
             // 
             // frmthietBi
             // 
@@ -249,5 +284,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtMaThietBi;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maThietBi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenThietBi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gia;
+        private System.Windows.Forms.TextBox txttinhTrang;
     }
 }

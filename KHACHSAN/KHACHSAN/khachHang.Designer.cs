@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmkhachHang));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvKhachHang = new System.Windows.Forms.DataGridView();
+            this.maKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnHuy = new System.Windows.Forms.Button();
@@ -38,12 +41,13 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtmaKhachHang = new System.Windows.Forms.MaskedTextBox();
             this.mtbsoDienThoai = new System.Windows.Forms.MaskedTextBox();
             this.SĐT = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txttenKhachHang = new System.Windows.Forms.TextBox();
-            this.txtmaKhachHang = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txttinhTrang = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachHang)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -62,12 +66,34 @@
             // dgvKhachHang
             // 
             this.dgvKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.maKhachHang,
+            this.tenKhachHang,
+            this.soDienThoai});
             this.dgvKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvKhachHang.Location = new System.Drawing.Point(3, 31);
             this.dgvKhachHang.Name = "dgvKhachHang";
             this.dgvKhachHang.RowTemplate.Height = 28;
             this.dgvKhachHang.Size = new System.Drawing.Size(651, 279);
             this.dgvKhachHang.TabIndex = 0;
+            // 
+            // maKhachHang
+            // 
+            this.maKhachHang.DataPropertyName = "maKhachHang";
+            this.maKhachHang.HeaderText = "Mã khách hàng";
+            this.maKhachHang.Name = "maKhachHang";
+            // 
+            // tenKhachHang
+            // 
+            this.tenKhachHang.DataPropertyName = "tenKhachHang";
+            this.tenKhachHang.HeaderText = "Tên khách hàng";
+            this.tenKhachHang.Name = "tenKhachHang";
+            // 
+            // soDienThoai
+            // 
+            this.soDienThoai.DataPropertyName = "soDienThoai";
+            this.soDienThoai.HeaderText = "Số điện thoại";
+            this.soDienThoai.Name = "soDienThoai";
             // 
             // btnSearch
             // 
@@ -152,11 +178,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtmaKhachHang);
             this.groupBox2.Controls.Add(this.mtbsoDienThoai);
             this.groupBox2.Controls.Add(this.SĐT);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txttenKhachHang);
-            this.groupBox2.Controls.Add(this.txtmaKhachHang);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -167,12 +193,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin khách hàng";
             // 
+            // txtmaKhachHang
+            // 
+            this.txtmaKhachHang.Location = new System.Drawing.Point(328, 48);
+            this.txtmaKhachHang.Name = "txtmaKhachHang";
+            this.txtmaKhachHang.PromptChar = '0';
+            this.txtmaKhachHang.Size = new System.Drawing.Size(227, 40);
+            this.txtmaKhachHang.TabIndex = 1;
+            this.txtmaKhachHang.ValidatingType = typeof(int);
+            // 
             // mtbsoDienThoai
             // 
             this.mtbsoDienThoai.Location = new System.Drawing.Point(676, 51);
             this.mtbsoDienThoai.Name = "mtbsoDienThoai";
+            this.mtbsoDienThoai.PromptChar = '0';
             this.mtbsoDienThoai.Size = new System.Drawing.Size(175, 40);
-            this.mtbsoDienThoai.TabIndex = 5;
+            this.mtbsoDienThoai.TabIndex = 3;
             // 
             // SĐT
             // 
@@ -199,13 +235,6 @@
             this.txttenKhachHang.Size = new System.Drawing.Size(227, 40);
             this.txttenKhachHang.TabIndex = 2;
             // 
-            // txtmaKhachHang
-            // 
-            this.txtmaKhachHang.Location = new System.Drawing.Point(328, 54);
-            this.txtmaKhachHang.Name = "txtmaKhachHang";
-            this.txtmaKhachHang.Size = new System.Drawing.Size(227, 40);
-            this.txtmaKhachHang.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -215,11 +244,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã khách hàng";
             // 
+            // txttinhTrang
+            // 
+            this.txttinhTrang.Location = new System.Drawing.Point(906, 491);
+            this.txttinhTrang.Name = "txttinhTrang";
+            this.txttinhTrang.Size = new System.Drawing.Size(100, 26);
+            this.txttinhTrang.TabIndex = 101;
+            this.txttinhTrang.Visible = false;
+            // 
             // frmkhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1017, 529);
+            this.Controls.Add(this.txttinhTrang);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnHuy);
             this.Controls.Add(this.btnSearch);
@@ -261,7 +299,11 @@
         private System.Windows.Forms.Label SĐT;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txttenKhachHang;
-        private System.Windows.Forms.TextBox txtmaKhachHang;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maKhachHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tenKhachHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soDienThoai;
+        private System.Windows.Forms.MaskedTextBox txtmaKhachHang;
+        private System.Windows.Forms.TextBox txttinhTrang;
     }
 }
